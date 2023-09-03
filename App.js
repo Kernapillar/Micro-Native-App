@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Linking, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Button, Linking, TextInput, SafeAreaView} from 'react-native';
 import React, {useState} from 'react';
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
   const [name, setName] = useState("Alex");
 
   const updateName = (newName) => {
-    setName(newName);
+    newName.length === 0 ? setName("Alex") : setName(newName);
   }
 
   const incrementCounter = () => {
@@ -25,33 +25,34 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
       <Text> {name}'s counter: {counter}</Text>
 
-      <Button onPress={incrementCounter} style={styles.button} title='Increment' ></Button>
-      <Button onPress={decrementCounter} style={styles.button} title='Decrement' ></Button>
-      <Button onPress={halfCounter} style={styles.button} title='Half'></Button>
-      <Button onPress={resetCounter} style={styles.button} title='Reset'></Button>
-      <TextInput onChangeText={text => updateName} placeholder='Update Name' />
+      <Button onPress={incrementCounter} color="blue" style={styles.button} title='Increment' ></Button>
+      <Button onPress={decrementCounter} color="green" style={styles.button} title='Decrement' ></Button>
+      <Button onPress={halfCounter} color="purple" style={styles.button} title='Half'></Button>
+      <Button onPress={resetCounter} color="orange" style={styles.button} title='Reset'></Button>
+      <TextInput onChangeText={text => updateName(text)} placeholder='Update Name' />
       {/* <Button title='Youtube' onPress={() => Linking.openURL('https://youtube.com/gymnast86')} style={styles.button} ></Button> */}
 
 
       <StatusBar style="auto" />
-    </View>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    borderStyle: "solid", 
+    borderColor: "red",
+    borderWidth:"3",
+    borderRadius: "10",
+    backgroundColor: 'lightblue',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  button: {
-    fontSize: "15",
-    backgroundColor: "grey",
-    border: '1px solid black',
-    paddingBottom: '5%',
-  }
+  
 });
