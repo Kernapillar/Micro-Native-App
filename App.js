@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
+      <View style={styles.container2}>
       <Text> {name}'s counter: {counter}</Text>
 
       <Button onPress={incrementCounter} color="blue" style={styles.button} title='Increment' ></Button>
@@ -54,5 +54,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  container2: {
+    flex:1,
+    alignItems:"center",
+    justifyContent:"center",
+    width: 200,
+    height:300,
+    backgroundColor:"magenta",
+  }
   
 });
