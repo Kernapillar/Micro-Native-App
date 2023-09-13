@@ -23,6 +23,9 @@ export default function App() {
   const halfCounter = () => {
     setCounter(Math.floor(counter / 2));
   }
+  const doubleCounter = () => {
+    setCounter(counter * 2);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,6 +34,7 @@ export default function App() {
 
       <Button onPress={incrementCounter} color="blue" style={styles.button} title='Increment' ></Button>
       <Button onPress={decrementCounter} color="green" style={styles.button} title='Decrement' ></Button>
+      <Button onPress={doubleCounter} color="yellow" style={styles.button} title='Double'></Button>
       <Button onPress={halfCounter} color="purple" style={styles.button} title='Half'></Button>
       <Button onPress={resetCounter} color="orange" style={styles.button} title='Reset'></Button>
       <TextInput onChangeText={text => updateName(text)} placeholder='Update Name' />
@@ -46,6 +50,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 40,
     borderStyle: "solid", 
     borderColor: "red",
     borderWidth:"3",
@@ -55,7 +60,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container2: {
-    flex:1,
     alignItems:"center",
     justifyContent:"center",
     width: 200,
